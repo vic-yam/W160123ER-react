@@ -1,8 +1,11 @@
 import './App.css';
+import PageHeader from './components/PageHeader';
 
 function App() {
   return (
-    <div className="App"></div>
+    <div className="App">
+        <PageHeader />
+    </div>
   );
 }
 
