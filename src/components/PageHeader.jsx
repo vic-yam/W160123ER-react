@@ -1,4 +1,5 @@
 
+import "./pageHeader.css";
 
 const PageHeader = () => {
     const data = {
@@ -16,7 +17,7 @@ const PageHeader = () => {
         <>
             <h1 style={headLineStyle}>title</h1>
             <p style={{color: 'green', marginTop:'5px'}}>{data.title}</p>
-            <h2>description</h2>
+            <h2 className="blue">description</h2>
             <p>{data.description}</p>
         </>
     );
