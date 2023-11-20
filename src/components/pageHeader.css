@@ -1,4 +1,5 @@
 .blue {
     color: blue;
-    font-weight: bold;
+    font-weight: bolder;
+    margin: 1rem;
 }
