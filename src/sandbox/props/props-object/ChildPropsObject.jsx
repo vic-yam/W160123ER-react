@@ -2,6 +2,8 @@ import { Box, Typography } from '@mui/material';
 
 
 
+// const ChildPropsObject = (props) => {
+//     const {victor:{firstName, lastName}}  = props;
 const ChildPropsObject = ({victor}) => {
     const {firstName, lastName}  = victor;
     return (
