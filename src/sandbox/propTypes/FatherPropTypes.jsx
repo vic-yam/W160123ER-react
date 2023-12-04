@@ -35,8 +35,18 @@ const FatherPropTypes = () => {
                 exactObject={exactObject}
                 image={image}
                 name="Vic"
-            />
-            <ChildPropTypes 
+                node={<span>the text in node</span>}
+            >
+              <p>Students</p>
+              <a href="https://hackeru.co.il">Victor</a>
+              <hr />
+              <a href="https://hackeru.co.il">Shmulik</a>
+              <hr />
+              <button onClick={() => {}}>click like 👍</button>
+            </ChildPropTypes>
+
+
+            {/* <ChildPropTypes 
                 string="Hello World!"
                 number={1}
                 boolean={true}
@@ -52,7 +62,7 @@ const FatherPropTypes = () => {
                 specificId="asd"
                 exactObject={exactObject}
                 image={image}
-            />
+            /> */}
         </div>
     );
 }

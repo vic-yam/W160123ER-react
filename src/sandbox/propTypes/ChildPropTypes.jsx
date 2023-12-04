@@ -18,10 +18,15 @@ const ChildPropTypes = (props) => {
         specificId,
         exactObject,
         image,
-        name } = props;
+        name,
+        node,
+        children } = props;
+
+        console.dir(children);
     return (
         <div>
             <h3>ChildPropTypes, {name}</h3>
+            {node}: {children}
         </div>
     )
 }
@@ -44,7 +49,10 @@ ChildPropTypes.propTypes = {
         third: PropTypes.bool
     }),
     image: imageType.isRequired,
-    name: PropTypes.any.isRequired
+    name: PropTypes.any.isRequired,
+    node: PropTypes.node.isRequired,
+    // children: PropTypes.oneOfType([PropTypes.element, PropTypes.node, PropTypes.string]).isRequired
+    children:  PropTypes.arrayOf(PropTypes.element).isRequired
 };
 
 ChildPropTypes.defaultProps = {
