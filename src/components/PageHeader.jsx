@@ -1,26 +1,19 @@
 
-import "./pageHeader.css";
+import {string} from 'prop-types';
+import {Box, Divider, Typography} from '@mui/material';
 
-const PageHeader = () => {
-    const data = {
-        title: 'Page Header',
-        description: 'This is a page header component',
-    };
-    console.log(data);
-
-    const headLineStyle = {
-        color: 'red',
-        fontFamily: 'Roboto, sans-serif'
-    }
-
+const PageHeader = ({title, subtitle}) => {
     return (
-        <>
-            <h1 style={headLineStyle}>title</h1>
-            <p style={{color: 'green', marginTop:'5px'}}>{data.title}</p>
-            <h2 className="blue">description</h2>
-            <p>{data.description}</p>
-        </>
+        <Box pt={2}>
+            <Typography variant='h2' component="h1">{title}</Typography>
+            <Typography  variant='h5' component="h2">{subtitle}</Typography>
+            <Divider sx={{ my: 2 }}></Divider>
+        </Box>
     );
 }
 
+PageHeader.propTypes = {
+    title: string.isRequired,
+    subtitle: string.isRequired,
+}
 export default PageHeader;

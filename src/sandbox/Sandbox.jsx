@@ -1,5 +1,7 @@
 import Loops from "./Loops";
 import OnClick from "./events/Onclick";
+import UseStateWithFunction from "./hooks/UseStateWithFunction";
+import UseStateWithObject from "./hooks/UseStateWithObject";
 import MuiSandbox from "./mui-sandbox/MuiSandbox";
 import FatherPropTypes from "./propTypes/FatherPropTypes";
 import FatherPropsObject from "./props/props-object/FatherPropsObject";
@@ -32,7 +34,10 @@ const Sandbox = () => (
         {/* <FatherPropsObject></FatherPropsObject> */}
         {/* <FatherPropsTwoKeys></FatherPropsTwoKeys> */}
         {/* <Loops></Loops> */}
-        <FatherPropTypes></FatherPropTypes>
+        {/* <FatherPropTypes></FatherPropTypes> */}
+        {/* <UseState></UseState> */}
+        {/* <UseStateWithObject></UseStateWithObject> */}
+        <UseStateWithFunction></UseStateWithFunction>
     </>
 )
 
