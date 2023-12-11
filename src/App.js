@@ -7,18 +7,21 @@ import OnClick from './sandbox/events/Onclick';
 import CardsPage from './cards/pages/CardsPage';
 import AboutPage from './pages/AboutPage';
 import UseState from './sandbox/hooks/UseState';
+import Layout from './layout/Layout';
 
 function App() {
   return (
     <div className="App">
         {/* <PageHeader /> */}
-        <Sandbox  />
+        {/* <Sandbox  /> */}
         {/* <CardsPage></CardsPage> */}
         {/* <AboutPage></AboutPage> */}
         
         {/* <CardComponent></CardComponent> */}
         {/* <Cards></Cards> */}
-      
+      <Layout>
+        <CardsPage></CardsPage>
+      </Layout>
     </div>
   );
 }

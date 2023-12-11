@@ -10,6 +10,7 @@ const UseStateWithComplexObject = () => {
         email: "",
     };
     const [user, setUser] = useState(INITIAL_USER);
+    const [users, setUsers] = useState([]);
 
     return (
         <form>
@@ -32,24 +33,24 @@ const UseStateWithComplexObject = () => {
             <input
                 type="text"
                 placeholder="Enter first name"
-                onChange={(e) =>?}
+                onChange={(e) => setUser({ ...user, name: { ...user.name, first: e.target.value } })}
             ></input>
             <input
                 type="text"
                 placeholder="Enter last name"
-                onChange={(e) =>?}
+                onChange={(e) => setUser({ ...user, name: { ...user.name, last: e.target.value } })}
             ></input>
 
             <input
                 type="text"
                 placeholder="Enter email"
-                onChange={(e) =>?}
+                onChange={(e) => setUser({ ...user, email: e.target.value })}
             ></input>
 
             <input
                 type="text"
                 placeholder="Enter age"
-                onChange={(e) =>?}
+                onChange={(e) => setUser({ ...user, age: e.target.value })}
             ></input>
         </form>
     )
