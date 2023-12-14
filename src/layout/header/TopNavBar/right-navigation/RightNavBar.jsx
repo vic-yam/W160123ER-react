@@ -5,18 +5,24 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import NotLogged from './NotLogged';
 import Logged from './Logged';
+import MoreButton from './MoreButton';
+import MenuBar from './MenuBar';
+import { useState } from 'react';
 
 const RightNavBar = () => {
+
+    const  [anchorEl, setEnchorEl] = useState(null);
+
     const user = true;
-    let anchorEl = null;
 
     const setAnchorEl = target => {
-        anchorEl = target;
+        setEnchorEl(target)
         console.log("you opened the menu");
     }
 
     const closeMenu = () => {
-        anchorEl = null;
+        setEnchorEl(null)
+        
         console.log("you closed the menu");
     }
 
@@ -35,6 +41,14 @@ const RightNavBar = () => {
             </Box>
 
             <MoreButton setAnchorEl={setAnchorEl} />
+
+            <MenuBar 
+                isMenuOpen={Boolean(anchorEl)}
+                anchorEl={anchorEl}
+                onCloseMenu={closeMenu}
+            />
+
+            
         </>
     )
 }
