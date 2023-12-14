@@ -19,10 +19,10 @@ function App() {
         
         {/* <CardComponent></CardComponent> */}
         {/* <Cards></Cards> */}
-      {/* <Layout>
+      <Layout>
         <CardsPage></CardsPage>
-      </Layout> */}
-      <Sandbox></Sandbox>
+      </Layout>
+      {/* <Sandbox></Sandbox> */}
     </div>
   );
 }

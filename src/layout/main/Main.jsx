@@ -5,7 +5,7 @@ import { Box } from "@mui/material"
 const Main = ({children}) => {
 
     return (
-        <Box sx={{minHeight: "85vh", backgroundColor: "lightgray"}}>
+        <Box sx={{minHeight: "90vh", backgroundColor: "lightgray"}}>
             {children}
         </Box>
     )
