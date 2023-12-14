@@ -9,10 +9,8 @@ const LogoIcon = () => {
                 size: "large",
                 edge: "start",
                 color: "inherit",
-
-            }}
-        >
-          <Avatar alt='me' src='/assets/images/avatar.png'></Avatar>
+            }}>
+          <Avatar alt='me' src='/assets/images/business-card.png'></Avatar>
         </IconButton>
     )
 }
