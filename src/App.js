@@ -19,9 +19,10 @@ function App() {
         
         {/* <CardComponent></CardComponent> */}
         {/* <Cards></Cards> */}
-      <Layout>
+      {/* <Layout>
         <CardsPage></CardsPage>
-      </Layout>
+      </Layout> */}
+      <Sandbox></Sandbox>
     </div>
   );
 }

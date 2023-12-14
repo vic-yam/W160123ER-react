@@ -1,5 +1,6 @@
 import Loops from "./Loops";
 import OnClick from "./events/Onclick";
+import SetPosts from "./hooks/SetPosts";
 import UseStateWithFunction from "./hooks/UseStateWithFunction";
 import UseStateWithObject from "./hooks/UseStateWithObject";
 import MuiSandbox from "./mui-sandbox/MuiSandbox";
@@ -37,7 +38,8 @@ const Sandbox = () => (
         {/* <FatherPropTypes></FatherPropTypes> */}
         {/* <UseState></UseState> */}
         {/* <UseStateWithObject></UseStateWithObject> */}
-        <UseStateWithFunction></UseStateWithFunction>
+        {/* <UseStateWithFunction></UseStateWithFunction> */}
+        <SetPosts></SetPosts>
     </>
 )
 
