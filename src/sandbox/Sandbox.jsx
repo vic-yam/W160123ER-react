@@ -9,9 +9,13 @@ import FatherPropsObject from "./props/props-object/FatherPropsObject";
 import FatherPropsString from "./props/props-string/FatherPropsString";
 import FatherPropsTwoKeys from "./props/props-two-keys/FatherPropsTwoKeys";
 
+import { Outlet } from "react-router-dom";
+import AppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import NavItem from "../routes/NavItem";
 
-
-const handleClick = () =>  {  
+const handleClick = () => {
     let count = 0;
     const inner = (e) => {
         count++;
@@ -26,20 +30,14 @@ const inner = handleClick();
 
 const Sandbox = () => (
     <>
-        {/* <OnClick handleClick={inner}></OnClick>
-        <OnClick handleClick={inner}></OnClick>
-        <OnClick handleClick={inner}></OnClick>
-        <OnClick handleClick={inner}></OnClick> */}
-        {/* <MuiSandbox /> */}
-        {/* <FatherPropsString></FatherPropsString> */}
-        {/* <FatherPropsObject></FatherPropsObject> */}
-        {/* <FatherPropsTwoKeys></FatherPropsTwoKeys> */}
-        {/* <Loops></Loops> */}
-        {/* <FatherPropTypes></FatherPropTypes> */}
-        {/* <UseState></UseState> */}
-        {/* <UseStateWithObject></UseStateWithObject> */}
-        {/* <UseStateWithFunction></UseStateWithFunction> */}
-        <SetPosts></SetPosts>
+        <AppBar position="static" color="transparent">
+            <Toolbar>
+                <NavItem label="Loops" to="loops" color="black" ></NavItem>
+                <NavItem label="Use State" to="useState" color="black" ></NavItem>
+            </Toolbar>
+        </AppBar>
+
+        <Outlet />
     </>
 )
 

@@ -13,7 +13,7 @@ const RightNavBar = () => {
 
     const  [anchorEl, setEnchorEl] = useState(null);
 
-    const user = true;
+    const user = false;
 
     const setAnchorEl = target => {
         setEnchorEl(target)

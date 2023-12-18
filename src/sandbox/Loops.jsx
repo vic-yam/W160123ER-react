@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 
 const Loops = () => {
-    // const arrOfStrings = ['one', 'two', 'three', 'four', 'five'];
-    const arrOfStrings = [];
+     const arrOfStrings = ['one', 'two', 'three', 'four', 'five'];
+    //const arrOfStrings = [];
     if(!arrOfStrings.length) {
         return <div>There are no strings</div>
     }

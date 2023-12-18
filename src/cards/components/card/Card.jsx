@@ -2,12 +2,16 @@ import { Card, CardActionArea } from '@mui/material';
 import CardHead from './CardHead';
 import CardBody from './CardBody';
 import CardActionBar from './CardActionBar';
+import { useNavigate } from 'react-router-dom';
+import ROUTES from '../../../routes/routesModel';
 
 const CardComponent = ({ card, handleDeleteCard, handleLikeCard, handleEditCard }) => {
-
+    const navigate = useNavigate();
     return (
         <Card sx={{ minWidth: 280, maxWidth: 350 }}>
-            <CardActionArea>
+            <CardActionArea
+                onClick={() => navigate(`${ROUTES.CARD_DETAILS}/${card._id}`)}
+            >
                 <CardHead image={card.image} />
                 <CardBody card={card} />
 

@@ -1,6 +1,8 @@
 import MuiMenu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import { Box, Button, Typography } from '@mui/material'
+import NavBarLink from '../../../../routes/NavBarLink';
+import ROUTES from '../../../../routes/routesModel';
 
 
 const MenuBar = ({ isMenuOpen, anchorEl, onCloseMenu }) => {
@@ -26,29 +28,40 @@ const MenuBar = ({ isMenuOpen, anchorEl, onCloseMenu }) => {
                 user && (
                     <Box>
                         <MenuItem>Logout</MenuItem>
-                        <MenuItem onClick={onCloseMenu}>Profile</MenuItem>
-                        <MenuItem onClick={onCloseMenu}>Edit account</MenuItem>
+                        <NavBarLink to={ROUTES.USER_PROFILE}>
+                            <MenuItem onClick={onCloseMenu}>Profile</MenuItem>
+                        </NavBarLink>
+                        <NavBarLink to={ROUTES.EDIT_USER}>
+                            <MenuItem onClick={onCloseMenu}>Edit account</MenuItem>
+                        </NavBarLink>
                     </Box>
                 )
             }
             {
                 !user && (
                     <Box>
-                        <MenuItem
-                            sx={{ display: { xs: "block", md: "none" } }}
-                            onClick={onCloseMenu}>
-                            Login
-                        </MenuItem>
+                        <NavBarLink to={ROUTES.LOGIN}>
+                            <MenuItem
+                                sx={{ display: { xs: "block", md: "none" } }}
+                                onClick={onCloseMenu}>
+                                Login
+                            </MenuItem>
+                        </NavBarLink>
 
-                        <Button color="inherit">
-                            <Typography>About</Typography>
-                        </Button>
+                        <NavBarLink to={ROUTES.ABOUT}>
 
-                        <MenuItem
-                            sx={{ display: { xs: "block", md: "none" } }}
-                            onClick={onCloseMenu}>
-                            SignUp
-                        </MenuItem>
+                            <Button color="inherit">
+                                <Typography>About</Typography>
+                            </Button>
+                        </NavBarLink>
+
+                        <NavBarLink to={ROUTES.SIGNUP}>
+                            <MenuItem
+                                sx={{ display: { xs: "block", md: "none" } }}
+                                onClick={onCloseMenu}>
+                                SignUp
+                            </MenuItem>
+                        </NavBarLink>
                     </Box>
                 )
             }
