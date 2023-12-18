@@ -8,21 +8,18 @@ import CardsPage from './cards/pages/CardsPage';
 import AboutPage from './pages/AboutPage';
 import UseState from './sandbox/hooks/UseState';
 import Layout from './layout/Layout';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './routes/Router';
 
 function App() {
   return (
     <div className="App">
-        {/* <PageHeader /> */}
-        {/* <Sandbox  /> */}
-        {/* <CardsPage></CardsPage> */}
-        {/* <AboutPage></AboutPage> */}
-        
-        {/* <CardComponent></CardComponent> */}
-        {/* <Cards></Cards> */}
-      <Layout>
-        <CardsPage></CardsPage>
-      </Layout>
-      {/* <Sandbox></Sandbox> */}
+       <BrowserRouter>
+        <Layout>
+          <Router />
+        </Layout>
+       </BrowserRouter>
+     
     </div>
   );
 }
