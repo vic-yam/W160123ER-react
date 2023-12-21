@@ -14,6 +14,7 @@ const LeftNavBar = () => {
                 <NavItem label="About" to={ROUTES.ABOUT} ></NavItem>
                 <NavItem label="My Cards" to={ROUTES.MY_CARDS} ></NavItem>
                 <NavItem label="Fav Cards" to={ROUTES.FAV_CARDS} ></NavItem>
+                <NavItem label="Sandbox 🧃" to={ROUTES.SANDBOX} ></NavItem>
 
             </Box>
 

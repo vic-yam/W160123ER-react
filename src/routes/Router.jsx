@@ -9,6 +9,15 @@ import LoginPage from '../users/pages/LoginPage';
 import CardDetailsPage from '../cards/pages/CardDetailsPage';
 import Loops from '../sandbox/Loops';
 import SetPosts from '../sandbox/hooks/SetPosts';
+import HooksWrapper from '../sandbox/hooks/HooksWrapper';
+import LifeCycleHooks from '../sandbox/life-cycle-hooks/LifeCycleHooks';
+import UseStateCycle from '../sandbox/life-cycle-hooks/UseStateCycle';
+import UseEffectAsComponentDidMount from '../sandbox/life-cycle-hooks/UseEffectAsComponentDidMount';
+import UseEffectAsComponentDidUpdate from '../sandbox/life-cycle-hooks/UseEffectAsComponentDidUpdate';
+import UseEffectAsComponentWillUnmount from '../sandbox/life-cycle-hooks/UseEffectAsComponentWillUnmount';
+import UseEffectNoDependencies from '../sandbox/life-cycle-hooks/UseEffectNoDependancies';
+import CustomHooks from '../sandbox/custom-hooks/CustomHooks';
+import CustomCounterHook from '../sandbox/custom-hooks/CustomCounterHook';
 
 const Router = () => {
     return (
@@ -21,18 +30,22 @@ const Router = () => {
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
 
             <Route path={ROUTES.SANDBOX} element={<Sandbox />}>
-                
-                <Route path='loops' element={<Loops />}></Route> 
-                <Route path='useState' element={<SetPosts />}></Route> 
+                <Route path="hooks" element={<HooksWrapper />}>
+                    <Route path="set-posts" element={<SetPosts />}></Route>
+                </Route>
+                <Route path="life-cycle-hooks" element={<LifeCycleHooks />}>
+                    <Route path="use-state" element={<UseStateCycle />}></Route>
+                    <Route path="useEffect-did-mount" element={<UseEffectAsComponentDidMount />}></Route>
+                    <Route path="useEffect-did-update" element={<UseEffectAsComponentDidUpdate />}></Route>
+                    <Route path="useEffect-will-unmount" element={<UseEffectAsComponentWillUnmount />}></Route>
+                    <Route path="useEffect-did-update-no-deps" element={<UseEffectNoDependencies />}></Route>
+
+                </Route>
+                <Route path="custom-hooks" element={<CustomHooks />}>
+                    <Route path="custom-counter" element={<CustomCounterHook />}></Route>
+                </Route>
                 <Route path='loops' element={<Loops />}></Route>
-                <Route path='loops' element={<Loops />}></Route> 
-                <Route path='loops' element={<Loops />}></Route> 
-                <Route path='loops' element={<Loops />}></Route> 
-                <Route path='loops' element={<Loops />}></Route> 
-                <Route path='loops' element={<Loops />}></Route> 
-                <Route path='loops' element={<Loops />}></Route> 
-                <Route path='loops' element={<Loops />}></Route> 
-                <Route path='loops' element={<Loops />}></Route> 
+
             </Route>
             <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
