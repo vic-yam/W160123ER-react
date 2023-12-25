@@ -18,6 +18,8 @@ import UseEffectAsComponentWillUnmount from '../sandbox/life-cycle-hooks/UseEffe
 import UseEffectNoDependencies from '../sandbox/life-cycle-hooks/UseEffectNoDependancies';
 import CustomHooks from '../sandbox/custom-hooks/CustomHooks';
 import CustomCounterHook from '../sandbox/custom-hooks/CustomCounterHook';
+import Memoization from '../sandbox/memoization/Memoization';
+import UseCallBack from '../sandbox/memoization/use-callback/UseCallback';
 
 const Router = () => {
     return (
@@ -43,6 +45,9 @@ const Router = () => {
                 </Route>
                 <Route path="custom-hooks" element={<CustomHooks />}>
                     <Route path="custom-counter" element={<CustomCounterHook />}></Route>
+                </Route>
+                <Route path="memoization" element={<Memoization />}>
+                    <Route path="use-callback" element={<UseCallBack />}></Route>
                 </Route>
                 <Route path='loops' element={<Loops />}></Route>
 

@@ -35,6 +35,7 @@ const Sandbox = () => (
                 <NavItem label="Hooks 🪝" to="hooks" color="black" ></NavItem>
                 <NavItem label="LifeCycle Hooks 🪝" to="life-cycle-hooks" color="black" ></NavItem> 
                 <NavItem label="Custom Hooks 🪝" to="custom-hooks" color="black" ></NavItem> 
+                <NavItem label="Memoization 🤔" to="memoization" color="black" ></NavItem> 
             </Toolbar>
         </AppBar>
 
