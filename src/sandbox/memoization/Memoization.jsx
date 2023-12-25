@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const Memoization = () => {
 
-    const memoized = () => {
+    const memoized = (func) => {
         let cache = {
             // 1: {
             //     1: 2
@@ -15,38 +15,38 @@ const Memoization = () => {
             //     2: 4
             // }
         };
-        const calculation = (a,b) => a + b;
-        return (a,b) => {
-            if(cache[a] && cache[a][b] !== undefined) {
-                return cache[a][b];
+      
+        return (...args) => {
+            const [a, b ] = args;
+            const str = JSON.stringify(args);
+            if (cache[str]) {
+                return cache[str];
             } else {
                 console.count("calculating");
-                const result = calculation(a, b);
+                const result = func(a, b);
                 cache = {
                     ...cache,
-                    [a]: {
-                        ...cache[a],
-                        [b]: result
-                    }
+                    [str]: result
                 }
                 return result;
             }
         }
     }
 
-    const memoizedCalculation = memoized();
-    console.log(memoizedCalculation(1,2));
-    console.log(memoizedCalculation(2,1));
-    
-    
+    const memoizedCalculation = memoized((a, b) => a + b);
+    console.log(memoizedCalculation(1, 2));
+    console.log(memoizedCalculation(2, 1));
 
 
-    
+
+
+
     return (
         <>
             <AppBar position="static" color="transparent">
                 <Toolbar>
                     <NavItem label="use callback" to="use-callback" color="black" ></NavItem>
+                    <NavItem label="use memo" to="use-memo" color="black" ></NavItem>
                 </Toolbar>
             </AppBar>
 
