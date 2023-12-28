@@ -3,7 +3,7 @@ import Button from '@mui/material/Button'
 import { func, node } from 'prop-types';
 
 const ButtonComp = ({ handleClick,name,value, children }) => {
-    console.log(`rendering button for ${name}, version: ${value} `);
+    console.log(`rendering button for ${name}, version: ${value}`);
 
     return (
         <Button variant="outlined" color="primary" onClick={handleClick}>
