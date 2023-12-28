@@ -6,23 +6,13 @@ import { getCards } from '../service/cardApiService'
 import Spinner from '../../components/Spinner'
 import Error from '../../components/Error'
 import CardsFeedback from '../components/CardsFeedback'
+import useCards from '../hooks/useCards'
 const CardsPage = () => {
 
-    const [cards, setCards] = useState();
-    const [error, setError] = useState(null);
-    const [isPending, setPending] = useState(true);
+    const {cards, error, handleGetCards, isPending} = useCards();
 
     useEffect(() => {
-        setPending(true);
-        getCards()
-            .then((data) => {
-                setPending(false);
-                setCards(data);
-            })
-            .catch((err) => {
-                setPending(false);
-                setError(err);
-            });
+        handleGetCards();
     }, []);
 
     return (
