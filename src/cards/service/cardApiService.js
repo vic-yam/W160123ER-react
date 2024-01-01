@@ -14,7 +14,7 @@ export const getCards = async () => {
 
 export const getCard = async (id) => {
     try {
-        const response = await axios.get(`${apiUrl}/cards/${id}`);
+        const response = await axios.get(`${apiUrl}/cardss/${id}`);
         console.log(response);
 
         return response.data;

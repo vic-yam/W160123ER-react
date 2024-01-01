@@ -10,13 +10,16 @@ import UseState from './sandbox/hooks/UseState';
 import Layout from './layout/Layout';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './routes/Router';
+import { SnackbarProvider } from './providers/SnackbarProvider';
 
 function App() {
   return (
     <div className="App">
        <BrowserRouter>
         <Layout>
-          <Router />
+          <SnackbarProvider>
+            <Router />
+          </SnackbarProvider>
         </Layout>
        </BrowserRouter>
      
