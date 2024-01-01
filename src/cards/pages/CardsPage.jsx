@@ -1,15 +1,11 @@
 import Container from '@mui/material/Container'
 import PageHeader from '../../components/PageHeader'
-import Cards from '../components/Cards'
 import { useEffect, useState } from 'react'
-import { getCards } from '../service/cardApiService'
-import Spinner from '../../components/Spinner'
-import Error from '../../components/Error'
 import CardsFeedback from '../components/CardsFeedback'
 import useCards from '../hooks/useCards'
 const CardsPage = () => {
 
-    const {cards, error, handleGetCards, isPending} = useCards();
+    const { cards, error, handleGetCards, isPending } = useCards();
 
     useEffect(() => {
         handleGetCards();

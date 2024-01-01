@@ -21,6 +21,7 @@ import CustomCounterHook from '../sandbox/custom-hooks/CustomCounterHook';
 import Memoization from '../sandbox/memoization/Memoization';
 import UseCallBack from '../sandbox/memoization/use-callback/UseCallback';
 import UseMemo from '../sandbox/memoization/use-callback/UseMemo';
+import A from '../sandbox/context/components/A';
 
 const Router = () => {
     return (
@@ -52,6 +53,7 @@ const Router = () => {
                     <Route path="use-memo" element={<UseMemo />}></Route>
                 </Route>
                 <Route path='loops' element={<Loops />}></Route>
+                <Route path='context' element={<A />}></Route>
 
             </Route>
             <Route path="*" element={<ErrorPage />}></Route>
