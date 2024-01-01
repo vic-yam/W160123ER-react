@@ -1,10 +1,19 @@
 import { useParams } from "react-router-dom";
 import Container from '@mui/material/Container'
 import PageHeader from "../../components/PageHeader";
+import useCards from "../hooks/useCards";
+import { useEffect } from "react";
 
 const CardDetailsPage = () => {
 
     const { id } = useParams();
+
+    const { card, handleGetCard } = useCards();
+
+    useEffect(() => {
+        handleGetCard(id);
+    }, [id]);
+
     return (
         <Container maxWidth="lg">
             <PageHeader
@@ -13,7 +22,7 @@ const CardDetailsPage = () => {
             >
 
             </PageHeader>
-            <div>Details od card: {id}</div>
+            <div>Details od card: {card?.title} {card?.subtitle}</div>
 
         </Container>
     )

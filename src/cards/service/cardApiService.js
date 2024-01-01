@@ -11,3 +11,14 @@ export const getCards = async () => {
         return Promise.reject(error.message);
     }
 }
+
+export const getCard = async (id) => {
+    try {
+        const response = await axios.get(`${apiUrl}/cards/${id}`);
+        console.log(response);
+
+        return response.data;
+    } catch (error) {
+        return Promise.reject(error.message);
+    }
+}
