@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { getCard, getCards } from "../service/cardApiService";
 import useAxios from "../../hooks/useAxios";
+import { useSnackbar } from "../../providers/SnackbarProvider";
 
 const useCards = () => {
+
+    const snack = useSnackbar();
 
     const [cards, setCards] = useState(null);
     const [card, setCard] = useState(null);
@@ -22,8 +25,10 @@ const useCards = () => {
         try {
             setPending(true);
             const cards = await getCards();
+            snack("success", "success")
             requestStatus(null, cards, false, null);
         } catch (error) {
+            snack("error", error)
             requestStatus(null, null, false, error);
         }
     }

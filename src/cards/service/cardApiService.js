@@ -14,9 +14,8 @@ export const getCards = async () => {
 
 export const getCard = async (id) => {
     try {
-        const response = await axios.get(`${apiUrl}/cardss/${id}`);
+        const response = await axios.get(`${apiUrl}/cards/${id}`);
         console.log(response);
-
         return response.data;
     } catch (error) {
         return Promise.reject(error.message);

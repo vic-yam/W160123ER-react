@@ -11,7 +11,7 @@ const SearchBar = () => {
         <Box display="inline-flex">
             <FormControl variant='standard'>
                 <OutlinedInput
-                    sx= {{backgroundColor: "#dceaf5"}}
+                    
                     placeholder='Search'
                     size='small'
                     endAdornment={

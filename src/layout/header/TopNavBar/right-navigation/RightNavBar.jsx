@@ -8,10 +8,12 @@ import Logged from './Logged';
 import MoreButton from './MoreButton';
 import MenuBar from './MenuBar';
 import { useState } from 'react';
+import { useTheme } from '../../../../providers/ThemeProvider';
 
 const RightNavBar = () => {
 
-    const  [anchorEl, setEnchorEl] = useState(null);
+    const [anchorEl, setEnchorEl] = useState(null);
+    const { isDark, toggleDarkMode } = useTheme();
 
     const user = false;
 
@@ -22,7 +24,7 @@ const RightNavBar = () => {
 
     const closeMenu = () => {
         setEnchorEl(null)
-        
+
         console.log("you closed the menu");
     }
 
@@ -30,9 +32,8 @@ const RightNavBar = () => {
         <>
             <Box sx={{ display: { xs: "none", md: "inline-flex" } }}>
                 <SearchBar />
-                <IconButton sx={{ marginLeft: 1 }}>
-                    <LightModeIcon />
-                    {/* <DarkModeIcon /> */}
+                <IconButton sx={{ marginLeft: 1 }} onClick={toggleDarkMode}>
+                    {isDark ? <LightModeIcon /> : <DarkModeIcon />}
                 </IconButton>
 
                 {!user && <NotLogged />}
@@ -42,13 +43,13 @@ const RightNavBar = () => {
 
             <MoreButton setAnchorEl={setAnchorEl} />
 
-            <MenuBar 
+            <MenuBar
                 isMenuOpen={Boolean(anchorEl)}
                 anchorEl={anchorEl}
                 onCloseMenu={closeMenu}
             />
 
-            
+
         </>
     )
 }
