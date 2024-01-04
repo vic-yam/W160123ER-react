@@ -1,6 +1,7 @@
 import Grid from '@mui/material/Grid'
 import TextField from '@mui/material/TextField'
 import { bool, func, object, string } from 'prop-types'
+import { makeFirstLetterCapital } from '../utils/algoMethod'
 
 const Input = ({
     variant, type, name, data, label, required, error, handleChange, ...rest

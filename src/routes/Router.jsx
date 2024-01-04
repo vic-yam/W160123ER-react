@@ -22,6 +22,7 @@ import Memoization from '../sandbox/memoization/Memoization';
 import UseCallBack from '../sandbox/memoization/use-callback/UseCallback';
 import UseMemo from '../sandbox/memoization/use-callback/UseMemo';
 import A from '../sandbox/context/components/A';
+import FormTest from '../sandbox/forms/FormTest';
 
 const Router = () => {
     return (
@@ -54,6 +55,7 @@ const Router = () => {
                 </Route>
                 <Route path='loops' element={<Loops />}></Route>
                 <Route path='context' element={<A />}></Route>
+                <Route path='form' element={<FormTest />}></Route>
 
             </Route>
             <Route path="*" element={<ErrorPage />}></Route>
