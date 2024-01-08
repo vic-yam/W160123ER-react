@@ -7,7 +7,7 @@ const Input = ({
     variant, type, name, data, label, required, error, handleChange, ...rest
 }) => {
     return (
-        <Grid item sx={12} {...rest}>
+        <Grid item xs={12} {...rest}>
             <TextField
                 variant={variant}
                 label={makeFirstLetterCapital(label)}

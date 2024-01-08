@@ -9,13 +9,14 @@ import MoreButton from './MoreButton';
 import MenuBar from './MenuBar';
 import { useState } from 'react';
 import { useTheme } from '../../../../providers/ThemeProvider';
+import { useUser } from '../../../../users/providers/UserProvider';
 
 const RightNavBar = () => {
 
     const [anchorEl, setEnchorEl] = useState(null);
     const { isDark, toggleDarkMode } = useTheme();
 
-    const user = false;
+    const { user } = useUser();
 
     const setAnchorEl = target => {
         setEnchorEl(target)
