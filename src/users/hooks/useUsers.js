@@ -1,9 +1,9 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../providers/UserProvider";
 import useAxios from "../../hooks/useAxios";
 import { login } from "../services/usersApiService";
-import { getUser, setTokenInLocalStorage } from "../services/localStorageService";
+import { getUser, removeToken, setTokenInLocalStorage } from "../services/localStorageService";
 import ROUTES from "../../routes/routesModel";
 
 
@@ -38,12 +38,25 @@ const useUsers = () => {
         }
     }, [navigate, requestStatus, setToken]);
 
-    return {
+
+    const handleLogout = useCallback(() => {
+        removeToken();
+        setToken(null);
+        setUser(null);
+    }, [setUser, setToken]);
+
+
+    const value = useMemo(() => ({
         users,
         user,
         loading,
-        error,
-        handleLogin
+        error
+    }), [users, user, loading, error]);
+
+    return {
+        ...value,
+        handleLogin,
+        handleLogout
     }
 }
 
