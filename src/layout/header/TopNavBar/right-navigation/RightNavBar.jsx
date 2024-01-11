@@ -13,18 +13,18 @@ import { useUser } from '../../../../users/providers/UserProvider';
 
 const RightNavBar = () => {
 
-    const [anchorEl, setEnchorEl] = useState(null);
+    const [anchorEl, setAnchor] = useState(null);
     const { isDark, toggleDarkMode } = useTheme();
 
     const { user } = useUser();
 
     const setAnchorEl = target => {
-        setEnchorEl(target)
+        setAnchor(target)
         console.log("you opened the menu");
     }
 
     const closeMenu = () => {
-        setEnchorEl(null)
+        setAnchor(null)
 
         console.log("you closed the menu");
     }
@@ -38,7 +38,7 @@ const RightNavBar = () => {
                 </IconButton>
 
                 {!user && <NotLogged />}
-                {user && <Logged setAnchorEl={setAnchorEl} />}
+                {user && <Logged />}
 
             </Box>
 
