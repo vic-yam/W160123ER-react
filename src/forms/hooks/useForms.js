@@ -55,7 +55,7 @@ const useForm = (initialForm, schema, handleSubmit) => {
     }, [data, errors]);
 
 
-    return { handleChange, handleReset, onSubmit, validateForm, value };
+    return { handleChange, handleReset, onSubmit, validateForm, setData, value };
 }
 
 useForm.propTypes = {

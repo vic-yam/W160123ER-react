@@ -42,7 +42,7 @@ const RightNavBar = () => {
 
             </Box>
 
-            <MoreButton setAnchorEl={setAnchorEl} />
+            <MoreButton />
 
             <MenuBar
                 isMenuOpen={Boolean(anchorEl)}
