@@ -5,7 +5,7 @@ import Cards from "./Cards";
 import { arrayOf, bool, string } from "prop-types";
 import cardType from "../models/types/cardType";
 
-const CardsFeedback = ({ isPending, error, cards }) => {
+const CardsFeedback = ({ isPending, error, cards, onDeleteCard }) => {
     if (isPending) return <Spinner />
     if (error) return <Error errorMessage={error} />
     if (cards && !cards.length)
@@ -14,7 +14,7 @@ const CardsFeedback = ({ isPending, error, cards }) => {
                 Oops... it seems there are no business cards to display
             </Typography>
         );
-    if (cards && !!cards.length) return <Cards cards={cards} />;
+    if (cards && !!cards.length) return <Cards cards={cards} onDeleteCard={onDeleteCard} />;
 }
 
 CardsFeedback.propTypes = {

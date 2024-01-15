@@ -4,9 +4,10 @@ import EditModeIcon from "@mui/icons-material/Edit";
 import CallIcon from "@mui/icons-material/Call";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useUser } from "../../../users/providers/UserProvider";
+import useCards from "../../hooks/useCards";
 
 const CardActionBar = ({
-  handleDeleteCard,
+  onDeleteCard,
   handleLikeCard,
   handleEditCard,
   card,
@@ -19,7 +20,7 @@ const CardActionBar = ({
     >
       <Box>
         {user && (user._id === card.user_id || user.isAdmin) && (
-          <IconButton onClick={() => handleDeleteCard(card._id)}>
+          <IconButton onClick={() => onDeleteCard(card._id)}>
             <DeleteIcon />
           </IconButton>
         )}

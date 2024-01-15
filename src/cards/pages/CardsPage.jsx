@@ -5,7 +5,7 @@ import CardsFeedback from '../components/CardsFeedback'
 import useCards from '../hooks/useCards'
 const CardsPage = () => {
 
-    const { cards, error, handleGetCards, isPending } = useCards();
+    const { value:{cards, error, isPending }, handleGetCards } = useCards();
 
     useEffect(() => {
         handleGetCards();

@@ -8,7 +8,7 @@ const CardDetailsPage = () => {
 
     const { id } = useParams();
 
-    const { card, handleGetCard } = useCards();
+    const { value: {card} , handleGetCard } = useCards();
 
     useEffect(() => {
         handleGetCard(id);

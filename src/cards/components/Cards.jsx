@@ -4,14 +4,13 @@ import CardComponent from "./card/Card";
 //react component class
 
 
-const Cards = ({ cards }) => {
+const Cards = ({ cards, onDeleteCard}) => {
     
     // const cards = [];
-    const handleDeleteCard = cardId => console.log(`Delete card ${cardId}`);
     const handleLikeCard = cardId => console.log(`Like card ${cardId}`);
     const handleEditCard = cardId => console.log(`Edit card ${cardId}`);
 
-    const methods = { handleDeleteCard, handleLikeCard, handleEditCard };
+    const methods = {onDeleteCard,  handleLikeCard, handleEditCard };
 
     if (!cards.length) {
         return <Typography variant="h5">No cards found</Typography>;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { getCard, getCards } from "../service/cardApiService";
 import useAxios from "../../hooks/useAxios";
 import { useSnackbar } from "../../providers/SnackbarProvider";
@@ -42,8 +42,21 @@ const useCards = () => {
             requestStatus(null, null, false, error);
         }
     }
+
+    const handleGetMyCards = async () => {
+
+    }
+
+    const handleDeleteCard = async (cardId) => {
+        
+    }
     
-    return { cards, card, isPending, error, handleGetCards, handleGetCard };
+    const value = useMemo(() => ({
+        cards, card, isPending, error
+    }), [cards, card, isPending, error]);
+
+
+    return { value, handleGetCards, handleGetCard, handleGetMyCards, handleDeleteCard };
 
 }
 

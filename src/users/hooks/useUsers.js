@@ -43,9 +43,9 @@ const useUsers = () => {
         try {
             const normalizedUser = normalizeUser(user);
             await signup(normalizedUser);
-            handleLogin({email: user.email, password: user.password});
+            await handleLogin({email: user.email, password: user.password});
         } catch (error) {
-            requestStatus(false, error.message, null);   
+            requestStatus(false, error.message, null);
         }
     }
     ,[requestStatus, handleLogin]);
