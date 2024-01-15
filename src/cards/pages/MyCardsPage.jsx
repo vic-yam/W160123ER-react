@@ -26,16 +26,17 @@ const MyCardsPage = () => {
         await handleGetMyCards();
     }
 
+
     return (
         <Container sx={{position: "relative", minHeight: "92vh"}}> 
             <PageHeader title='Cards' subtitle='Here you can find your business cards' />
             {" "}
             {cards && (
-                <Fab color="primary" 
-                aria-label=""
-                onClick={navigate(ROUTES.CREATE_CARD)}
-                sx={{position: "absolute", bottom: 75, right: 16}}
-                >
+                <Fab color="primary"
+                    aria-label=""
+                    onClick={() => navigate(ROUTES.CREATE_CARD)}
+                    sx={{position: "absolute", bottom: 75, right: 16}}
+                    >
                   <AddIcon />
                 </Fab>   
             )}

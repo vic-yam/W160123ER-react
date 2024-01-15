@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { getCard, getCards } from "../service/cardApiService";
+import { useCallback, useMemo, useState } from "react";
+import { deleteCard, getCard, getCards, getMyCards } from "../service/cardApiService";
 import useAxios from "../../hooks/useAxios";
 import { useSnackbar } from "../../providers/SnackbarProvider";
 
@@ -21,7 +21,7 @@ const useCards = () => {
     
     useAxios();
 
-    const handleGetCards = async () => {
+    const handleGetCards = useCallback(async () => {
         try {
             setPending(true);
             const cards = await getCards();
@@ -31,9 +31,9 @@ const useCards = () => {
             snack("error", error)
             requestStatus(null, null, false, error);
         }
-    }
+    }, []);
 
-    const handleGetCard = async (cardFromClient) => {
+    const handleGetCard = useCallback(async (cardFromClient) => {
         try {
             setPending(true);
             const card = await getCard(cardFromClient);
@@ -41,15 +41,28 @@ const useCards = () => {
         } catch (error) {
             requestStatus(null, null, false, error);
         }
-    }
+    }, []);
 
-    const handleGetMyCards = async () => {
+    const handleGetMyCards = useCallback(async () => {
+        try {
+            setPending(true);
+            const cards = await getMyCards();
+            requestStatus(null, cards, false, null );
 
-    }
+        } catch (error) {
+            requestStatus(null, null, false, error);
+        }
+    }, []);
 
-    const handleDeleteCard = async (cardId) => {
-        
-    }
+    const handleDeleteCard = useCallback( async (cardId) => {
+        try {
+            setPending(true);
+            await deleteCard(cardId);
+            snack("success", "The business card has been successfully deleted");
+        } catch (error) {
+            requestStatus(null, null, false, error );
+        }
+    }, []);
     
     const value = useMemo(() => ({
         cards, card, isPending, error
