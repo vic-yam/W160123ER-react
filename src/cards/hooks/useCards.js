@@ -1,11 +1,15 @@
 import { useCallback, useMemo, useState } from "react";
-import { deleteCard, getCard, getCards, getMyCards } from "../service/cardApiService";
+import { createCard, deleteCard, getCard, getCards, getMyCards } from "../service/cardApiService";
 import useAxios from "../../hooks/useAxios";
 import { useSnackbar } from "../../providers/SnackbarProvider";
+import { normalizeCard } from "../helpers/normalization/normalizeCard";
+import { useNavigate } from "react-router-dom";
+import ROUTES from "../../routes/routesModel";
 
 const useCards = () => {
 
     const snack = useSnackbar();
+    const navigate = useNavigate();
 
     const [cards, setCards] = useState(null);
     const [card, setCard] = useState(null);
@@ -64,12 +68,31 @@ const useCards = () => {
         }
     }, []);
     
+    const handleCreateCard = useCallback( async (cardFromClient) => {
+        try {
+            setPending(true);
+            const normalizedCard = normalizeCard(cardFromClient)
+            const card = await createCard(normalizedCard);
+            requestStatus(card, null, false, null );
+            snack("success", "The business card has been successfully created");
+            navigate(ROUTES.MY_CARDS);
+        } catch (error) {
+            requestStatus(null, null, false, error );
+        }
+    }, []);
+
+
     const value = useMemo(() => ({
         cards, card, isPending, error
     }), [cards, card, isPending, error]);
 
 
-    return { value, handleGetCards, handleGetCard, handleGetMyCards, handleDeleteCard };
+    return { value, 
+        handleGetCards, 
+        handleGetCard, 
+        handleGetMyCards, 
+        handleDeleteCard,
+        handleCreateCard };
 
 }
 

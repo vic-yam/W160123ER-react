@@ -41,3 +41,13 @@ export const deleteCard = async (id) => {
     }
 }
 
+export const createCard = async (card) => {
+    try {
+        const {data} = await axios.post(`${apiUrl}/cards`, card);
+        console.log(data);
+        return data;
+    } catch (error) {
+        return Promise.reject(error.message);
+    }
+}
+
