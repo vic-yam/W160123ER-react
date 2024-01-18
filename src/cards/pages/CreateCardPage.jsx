@@ -6,6 +6,7 @@ import cardSchema from "../models/joi-schema/cardSchema";
 import ROUTES from "../../routes/routesModel";
 import { Navigate } from "react-router-dom";
 import Container from "@mui/material/Container";
+import CardForm from "../components/CardForm";
 
 const CreateCardPage = () => {
   const { handleCreateCard } = useCards();
@@ -26,7 +27,20 @@ const CreateCardPage = () => {
         justifyContent: "center",
         alignItems: "center",
       }}
-        
-    ></Container>
+      
+    >
+        <CardForm
+            title="create card"
+            data={value.data}
+            onSubmit={rest.onSubmit}
+            onReset={rest.handleReset}
+            errors={value.errors}
+            onFormChange={rest.validateForm}
+            onInputChange={rest.handleChange}
+            >
+      </CardForm>
+    </Container>
   );
 };
+
+export default CreateCardPage;
