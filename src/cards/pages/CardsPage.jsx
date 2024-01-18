@@ -5,11 +5,17 @@ import CardsFeedback from '../components/CardsFeedback'
 import useCards from '../hooks/useCards'
 const CardsPage = () => {
 
-    const { value:{cards, error, isPending }, handleGetCards } = useCards();
+    const { value:{cards, error, isPending }, handleGetCards, handleDeleteCard, handleGetMyCards } = useCards();
 
     useEffect(() => {
         handleGetCards();
     }, []);
+
+    const onDeleteCard = async cardId => {
+        // TODO: make this functionality more efficient.
+        await handleDeleteCard(cardId);
+        await handleGetMyCards();
+    }
 
     return (
         <Container >
@@ -18,6 +24,7 @@ const CardsPage = () => {
                 isPending={isPending}
                 error={error}
                 cards={cards}
+                onDeleteCard={onDeleteCard}
             />
         </Container>
     )
