@@ -1,8 +1,13 @@
 
 
 export const mapCardToModel = card => ({
-    ...card,
-    imageURL: card.image.url,
+    title: card.title,
+    subtitle: card.subtitle,
+    description: card.description,
+    phone: card.phone,
+    email: card.email,
+    webUrl: card.web,
+    imageUrl: card.image.url,
     imageAlt: card.image.alt,
     ...{...card.address}
 });

@@ -61,3 +61,13 @@ export const updateCard = async (cardId, card) => {
     }
 }
 
+export const changeLikeStatus = async cardId => {
+    try {
+        const {data} = await axios.patch(`${apiUrl}/cards/${cardId}`);
+        console.log(data);
+        return data;
+    } catch (error) {
+        return Promise.reject(error.message);
+    }
+}
+

@@ -12,9 +12,9 @@ import ROUTES from "../../../routes/routesModel";
 
 const CardActionBar = ({
   onDeleteCard,
-  handleLikeCard,
   card,
 }) => {
+  const { handleLikeCard } = useCards();
   const { user } = useUser();
   const [isDialogOpen, setIsDialog] = useState(false);
   const navigate = useNavigate();
@@ -28,6 +28,13 @@ const CardActionBar = ({
     handleDialog();
     onDeleteCard(card._id);
   };
+
+  const handleLike = async () => {
+    setLiked(prev => !prev);
+    await handleLikeCard(card._id);
+  }
+
+  const [isLiked, setLiked] = useState(() => !!user && !!card.likes.find(id => id === user._id));
 
   return (
     <>
@@ -52,8 +59,8 @@ const CardActionBar = ({
           <IconButton>
             <CallIcon />
           </IconButton>
-          <IconButton onClick={() => handleLikeCard(card._id)}>
-            <FavoriteIcon />
+          <IconButton onClick={handleLike}>
+            <FavoriteIcon color={isLiked ? 'error' : 'inherit'} />
           </IconButton>
         </Box>
       </CardActions>

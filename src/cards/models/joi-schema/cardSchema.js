@@ -27,6 +27,7 @@ const cardSchema = {
     street: Joi.string().min(2).max(250).required(),
     houseNumber: Joi.number().required(),
     zip: Joi.number(),
+    _id: Joi.string().allow(""),
 };
 
 export default cardSchema;

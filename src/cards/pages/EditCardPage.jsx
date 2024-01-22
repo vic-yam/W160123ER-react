@@ -16,14 +16,14 @@ import { mapCardToModel } from "../helpers/normalization/mapCardToModel";
 const EditCardPage = () => {
   const [initialForm, setInitForm] = useState(initialCardForm);
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { id: cardID } = useParams();
   const {
     handleUpdateCard,
     handleGetCard,
     value: { card },
   } = useCards();
   const { value, ...rest } = useForm(initialCardForm, cardSchema, () => {
-    handleUpdateCard(card.user_id, {
+    handleUpdateCard(cardID, {
       ...normalizeCard(value.data),
       bizNumber: card.bizNumber,
       user_id: card.user_id,
@@ -33,13 +33,13 @@ const EditCardPage = () => {
   const { user } = useUser();
 
   useEffect(() => {
-    handleGetCard(id).then((data) => {
+    handleGetCard(cardID).then((data) => {
       if (user._id !== data.user_id) navigate(ROUTES.CARDS);
       const modeledCard = mapCardToModel(data);
       setInitForm(modeledCard);
       rest.setData(modeledCard);
     });
-  }, [id]);
+  }, [cardID]);
 
   return (
     <Container

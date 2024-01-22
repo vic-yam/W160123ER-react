@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
-import { createCard, deleteCard, getCard, getCards, getMyCards, updateCard } from "../service/cardApiService";
+import { changeLikeStatus, createCard, deleteCard, getCard, getCards, getMyCards, updateCard } from "../service/cardApiService";
 import useAxios from "../../hooks/useAxios";
 import { useSnackbar } from "../../providers/SnackbarProvider";
 import { normalizeCard } from "../helpers/normalization/normalizeCard";
@@ -94,6 +94,16 @@ const useCards = () => {
         }
     }, []);
 
+    const handleLikeCard = useCallback( async (cardId) => {
+        try {
+            setPending(true);
+            const card = await changeLikeStatus(cardId);
+            requestStatus(card, cards, false, null);
+        } catch (error) {
+            requestStatus(null, null, false, error );
+        }
+    }, []);
+
     const value = useMemo(() => ({
         cards, card, isPending, error
     }), [cards, card, isPending, error]);
@@ -105,7 +115,8 @@ const useCards = () => {
         handleGetMyCards, 
         handleDeleteCard,
         handleCreateCard,
-        handleUpdateCard };
+        handleUpdateCard,
+        handleLikeCard };
 
 }
 

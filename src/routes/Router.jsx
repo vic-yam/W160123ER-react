@@ -35,7 +35,7 @@ const Router = () => {
             <Route path={ROUTES.MY_CARDS} element={<MyCardsPage />}></Route>
             <Route path={ROUTES.ABOUT} element={<AboutPage />}></Route>
             <Route path={ROUTES.CARDS} element={<CardsPage />}></Route>
-            <Route path={`${ROUTES.CARD_DETAILS}/:id`} element={<CardsPage />}></Route>
+            <Route path={`${ROUTES.CARD_DETAILS}/:id`} element={<CardDetailsPage />}></Route>
             <Route path={`${ROUTES.EDIT_CARD}/:id`} element={<EditCardPage />}></Route>
             <Route path={ROUTES.SIGNUP} element={<SignupPage />}></Route>
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />

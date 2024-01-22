@@ -6,6 +6,7 @@ import { arrayOf, bool, string } from "prop-types";
 import cardType from "../models/types/cardType";
 
 const CardsFeedback = ({ isPending, error, cards, onDeleteCard }) => {
+    
     if (isPending) return <Spinner />
     if (error) return <Error errorMessage={error} />
     if (cards && !cards.length)
@@ -23,5 +24,6 @@ CardsFeedback.propTypes = {
     cards: arrayOf(cardType),
 
   };
+
 
 export default CardsFeedback;

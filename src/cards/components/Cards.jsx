@@ -7,9 +7,8 @@ import CardComponent from "./card/Card";
 const Cards = ({ cards, onDeleteCard}) => {
     
     // const cards = [];
-    const handleLikeCard = cardId => console.log(`Like card ${cardId}`);
 
-    const methods = {onDeleteCard,  handleLikeCard };
+    const methods = {onDeleteCard };
 
     if (!cards.length) {
         return <Typography variant="h5">No cards found</Typography>;
