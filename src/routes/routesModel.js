@@ -11,6 +11,7 @@ const ROUTES = {
     USER_PROFILE: '/user-info',
     EDIT_USER: '/edit-user',
     CREATE_CARD: '/create-card',
+    EDIT_CARD: '/edit-card',
     
 }
 

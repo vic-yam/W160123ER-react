@@ -7,15 +7,17 @@ import { useUser } from "../../../users/providers/UserProvider";
 import useCards from "../../hooks/useCards";
 import { useState } from "react";
 import CardDeleteDialog from "./CardDeleteDialog";
+import { useNavigate } from "react-router-dom";
+import ROUTES from "../../../routes/routesModel";
 
 const CardActionBar = ({
   onDeleteCard,
   handleLikeCard,
-  handleEditCard,
   card,
 }) => {
   const { user } = useUser();
   const [isDialogOpen, setIsDialog] = useState(false);
+  const navigate = useNavigate();
 
   const handleDialog = (term) => {
     if (term === "open") setIsDialog(true);
@@ -41,7 +43,7 @@ const CardActionBar = ({
           )}
 
           {user && user._id === card.user_id && (
-            <IconButton onClick={() => handleEditCard(card._id)}>
+            <IconButton onClick={() => navigate(`${ROUTES.EDIT_CARD}/${card._id}`)}>
               <EditModeIcon />
             </IconButton>
           )}

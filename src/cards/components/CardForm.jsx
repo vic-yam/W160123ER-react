@@ -1,4 +1,4 @@
-import { func, object } from "prop-types";
+import { func, object, string } from "prop-types";
 import Form from "../../forms/components/Form";
 import Input from "../../forms/components/Input";
 import ROUTES from "../../routes/routesModel";
@@ -25,7 +25,7 @@ const CardForm = ({
         name="title"
         label="title"
         error={errors.title}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
       />
@@ -33,7 +33,7 @@ const CardForm = ({
         name="subtitle"
         label="subtitle"
         error={errors.subtitle}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
       />
@@ -41,7 +41,7 @@ const CardForm = ({
         name="description"
         label="description"
         error={errors.description}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
       />
@@ -50,7 +50,7 @@ const CardForm = ({
         label="phone"
         type="phone"
         error={errors.phone}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
       />
@@ -59,7 +59,7 @@ const CardForm = ({
         label="email"
         type="email"
         error={errors.email}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
       />
@@ -67,7 +67,7 @@ const CardForm = ({
         name="webUrl"
         label="web"
         error={errors.webUrl}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
         required={false}
@@ -77,7 +77,7 @@ const CardForm = ({
         name="imageUrl"
         label="image url"
         error={errors.imageUrl}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
         required={false}
@@ -86,7 +86,7 @@ const CardForm = ({
         name="imageAlt"
         label="image alt"
         error={errors.imageAlt}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
         required={false}
@@ -95,7 +95,7 @@ const CardForm = ({
         name="state"
         label="state"
         error={errors.state}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
         required={false}
@@ -104,7 +104,7 @@ const CardForm = ({
         name="country"
         label="country"
         error={errors.country}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
       />
@@ -112,7 +112,7 @@ const CardForm = ({
         name="city"
         label="city"
         error={errors.city}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
       />
@@ -120,7 +120,7 @@ const CardForm = ({
         name="street"
         label="street"
         error={errors.street}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
       />
@@ -130,7 +130,7 @@ const CardForm = ({
         label="houseNumber"
         type="number"
         error={errors.houseNumber}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
       />
@@ -139,7 +139,7 @@ const CardForm = ({
         label="zip"
         type="number"
         error={errors.zip}
-        onChange={onInputChange}
+        handleChange={onInputChange}
         data={data}
         sm={6}
         required={false}
@@ -155,7 +155,7 @@ CardForm.propTypes = {
     onFormChange: func.isRequired,
     data: object.isRequired,
     onInputChange: func.isRequired,
-    title: func.isRequired,
+    title: string.isRequired,
 }
 
 export default CardForm;

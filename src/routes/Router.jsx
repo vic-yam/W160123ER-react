@@ -25,17 +25,18 @@ import A from '../sandbox/context/components/A';
 import FormTest from '../sandbox/forms/FormTest';
 import MyCardsPage from '../cards/pages/MyCardsPage';
 import CreateCardPage from '../cards/pages/CreateCardPage';
+import EditCardPage from '../cards/pages/EditCardPage';
 
 const Router = () => {
     return (
         <Routes>
-
+            
             <Route path={ROUTES.CREATE_CARD} element={<CreateCardPage />}></Route>
             <Route path={ROUTES.MY_CARDS} element={<MyCardsPage />}></Route>
             <Route path={ROUTES.ABOUT} element={<AboutPage />}></Route>
             <Route path={ROUTES.CARDS} element={<CardsPage />}></Route>
-            <Route path={`${ROUTES.CARD_DETAILS}/:id`} element={<CardDetailsPage />}></Route>
-
+            <Route path={`${ROUTES.CARD_DETAILS}/:id`} element={<CardsPage />}></Route>
+            <Route path={`${ROUTES.EDIT_CARD}/:id`} element={<EditCardPage />}></Route>
             <Route path={ROUTES.SIGNUP} element={<SignupPage />}></Route>
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
 

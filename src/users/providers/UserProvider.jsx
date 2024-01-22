@@ -8,6 +8,10 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(() => {
         const tokenFromLS = getToken();
+        if(tokenFromLS) {
+            const userFromLS = getUser();
+            setUser(userFromLS);
+        }
         return tokenFromLS;
     });
 

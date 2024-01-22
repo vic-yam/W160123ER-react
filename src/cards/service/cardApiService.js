@@ -51,3 +51,13 @@ export const createCard = async (card) => {
     }
 }
 
+export const updateCard = async (cardId, card) => {
+    try {
+        const {data} = await axios.put(`${apiUrl}/cards/${cardId}`, card);
+        console.log(data);
+        return data;
+    } catch (error) {
+        return Promise.reject(error.message);
+    }
+}
+
