@@ -4,11 +4,11 @@ import CardComponent from "./card/Card";
 //react component class
 
 
-const Cards = ({ cards, onDeleteCard}) => {
+const Cards = ({ cards, onDeleteCard, onLike}) => {
     
     // const cards = [];
 
-    const methods = {onDeleteCard };
+    const methods = {onDeleteCard, onLike };
 
     if (!cards.length) {
         return <Typography variant="h5">No cards found</Typography>;

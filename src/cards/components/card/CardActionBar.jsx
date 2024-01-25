@@ -13,6 +13,7 @@ import ROUTES from "../../../routes/routesModel";
 const CardActionBar = ({
   onDeleteCard,
   card,
+  onLike
 }) => {
   const { handleLikeCard } = useCards();
   const { user } = useUser();
@@ -32,6 +33,7 @@ const CardActionBar = ({
   const handleLike = async () => {
     setLiked(prev => !prev);
     await handleLikeCard(card._id);
+    await onLike();
   }
 
   const [isLiked, setLiked] = useState(() => !!user && !!card.likes.find(id => id === user._id));

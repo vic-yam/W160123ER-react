@@ -1,20 +1,38 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { changeLikeStatus, createCard, deleteCard, getCard, getCards, getMyCards, updateCard } from "../service/cardApiService";
 import useAxios from "../../hooks/useAxios";
 import { useSnackbar } from "../../providers/SnackbarProvider";
 import { normalizeCard } from "../helpers/normalization/normalizeCard";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
+import { useUser } from "../../users/providers/UserProvider";
 
 const useCards = () => {
 
     const snack = useSnackbar();
     const navigate = useNavigate();
 
+    const [query, setQuery] = useState("");
+    const [filteredCards, setFilteredCards] = useState(null);
+    const [searchParams] = useSearchParams();
+
     const [cards, setCards] = useState(null);
     const [card, setCard] = useState(null);
     const [isPending, setPending] = useState(true);
     const [error, setError] = useState(null);
+
+    const { user } = useUser();
+
+    useEffect(() => {
+        setQuery(searchParams.get("q") || "");
+    }, [searchParams]);
+
+    useEffect(() => {
+        if(cards) {
+            const filtered = cards.filter(c => c.title.includes(query) || String(c.bizNumber).includes(query));
+            setFilteredCards(filtered);
+        }
+    }, [query, cards]);
 
     const requestStatus = (card, cards, isPending, error) => {
         setCard(card);
@@ -104,9 +122,20 @@ const useCards = () => {
         }
     }, []);
 
+    const handleGetFavCards = useCallback( async () => {
+        try {
+            setPending(true);
+            const cards = await getCards();
+            const favCards = cards.filter(card => !!card.likes.find(id => id === user._id));
+            requestStatus(null, favCards, false, null);
+        } catch (error) {
+            requestStatus(null, null, false, error );
+        }
+    }, []);
+
     const value = useMemo(() => ({
-        cards, card, isPending, error
-    }), [cards, card, isPending, error]);
+        cards, card, isPending, error, filteredCards
+    }), [cards, card, isPending, error, filteredCards]);
 
 
     return { value, 
@@ -116,7 +145,8 @@ const useCards = () => {
         handleDeleteCard,
         handleCreateCard,
         handleUpdateCard,
-        handleLikeCard };
+        handleLikeCard,
+        handleGetFavCards };
 
 }
 

@@ -5,7 +5,7 @@ import CardActionBar from './CardActionBar';
 import { useNavigate } from 'react-router-dom';
 import ROUTES from '../../../routes/routesModel';
 
-const CardComponent = ({ card, onDeleteCard }) => {
+const CardComponent = ({ card, onDeleteCard, onLike }) => {
     const navigate = useNavigate();
     return (
         <Card sx={{ minWidth: 280, maxWidth: 350 }}>
@@ -16,7 +16,7 @@ const CardComponent = ({ card, onDeleteCard }) => {
                 <CardBody card={card} />
 
             </CardActionArea>
-            <CardActionBar {...{onDeleteCard, card}} />
+            <CardActionBar {...{onDeleteCard, card, onLike}} />
         </Card>
     )
 }
